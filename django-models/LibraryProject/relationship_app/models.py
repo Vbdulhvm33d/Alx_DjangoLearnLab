@@ -14,16 +14,16 @@ class Book(models.Model):
     def __str__(self):
         return self.title
 
-class library(models.Model):
+class Library(models.Model):
     name = models.CharField(max_length=100)
     books = models.ManyToManyField(Book, related_name='libraries')
 
     def __str__(self):
         return self.name
     
-class librarian(models.Model):
+class Librarian(models.Model):
     name = models.CharField(max_length=100)
-    library = models.OneToOneField(library, on_delete=models.CASCADE, related_name='librarian')
+    library = models.OneToOneField(Library, on_delete=models.CASCADE, related_name='librarian')
 
     def __str__(self):
         return self.name
