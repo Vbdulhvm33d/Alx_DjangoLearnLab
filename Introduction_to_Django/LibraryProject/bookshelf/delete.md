@@ -1,3 +1,4 @@
-book1 = Book.objects.get(id='1')
-book1.delete()
+from bookshelf.models import Book
+book = Book.objects.get(id='1')
+book.delete()
 """<QuerySet []>
