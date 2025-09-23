@@ -10,11 +10,11 @@ def sample_queries():
     #print(f"Books by {Author.name}: {[book.title for book in author_books]}")
 
     #Retrieve all books in a library
-    book = Library.objects.get(name='Library_name')
+    book = Library.objects.get(name=library_name)
     books_in_library = book.books.all()
     print(books_in_library)
 
     #Retrieve the librarian for a library
-    lib = library.objects.first()
+    lib = Library.objects.first()
     lib_librarian = lib.librarian
     print(f"Librarian of {lib.name}: {lib_librarian.name}")
