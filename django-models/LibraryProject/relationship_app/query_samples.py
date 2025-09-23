@@ -3,7 +3,7 @@ from relationship_app.models import Author, Book, Library, Librarian
 # Sample queries demonstrating relationships
 def sample_queries():
     # Query all books by a specific author
-    author_books = Book.objects.get(author = author_name, objects.filter(author=author))
+    author_books = Book.objects.get(author=author_name)
     His_books = author_books.books.all()
     print(His_books)
     
