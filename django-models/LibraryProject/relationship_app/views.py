@@ -31,14 +31,14 @@ class SignUpView(CreateView):
 
 #creating user login form
 from django.contrib.auth import login
-#from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView
 from django.urls import path
 
 urlpatterns = [path('login/', login.as_view(template_name='registeration/login.html'), name='login'),]
 
 #creating user logout form
 from django.contrib.auth import logout
-#from django.contrib.auth.views import LogoutView
+from django.contrib.auth.views import LogoutView
 from django.urls import path
 
 urlpatterns = [path('logout/', logout.as_view(), name='Logout')]
