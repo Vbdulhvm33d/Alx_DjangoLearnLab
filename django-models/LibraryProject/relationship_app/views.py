@@ -13,3 +13,31 @@ class LibraryDetailView(DetailView):
     model = Library
     template_name = "relationship_app/library_detail.html"
     context_object_name = "library" 
+
+#creating a user profile
+#from django.contrib.auth.models import User
+#new_user = User.objects.create_user(username='newuser',email='newuser@gmail.com',password='password123')
+#new_user.save()
+
+#creating a new user registeration form.
+from django.contrib.auth.forms import UserCreationForm
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
+
+class SignUpView(CreateView):
+   form_class = UserCreationForm
+   success_url = reverse_lazy('login')
+   template_name = 'registration/signup.html'
+
+#creating user login form
+from django.contrib.auth.views import LoginView
+from django.urls import path
+
+urlpatterns = [path('login/', LoginView.as_view(template_name='registeration/login.html'), name='login'),]
+
+#creating user logout form
+from django.contrib.auth.views import LogoutView
+from django.urls import path
+
+urlpatterns = [path('logout/', LogoutView.as_view(), name='Logout')]
+
