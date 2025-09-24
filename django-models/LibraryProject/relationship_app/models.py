@@ -71,7 +71,7 @@ from .forms import BookForm  # Assuming you created a ModelForm for Book
 
 # Add Book
 @permission_required('relationship_app.can_add_book', raise_exception=True)
-def add_book(request):
+def can_add_book(request):
     if request.method == "POST":
         form = BookForm(request.POST)
         if form.is_valid():
@@ -83,7 +83,7 @@ def add_book(request):
 
 # Edit Book
 @permission_required('relationship_app.can_change_book', raise_exception=True)
-def edit_book(request, pk):
+def can_change_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
         form = BookForm(request.POST, instance=book)
@@ -96,7 +96,7 @@ def edit_book(request, pk):
 
 # Delete Book
 @permission_required('relationship_app.can_delete_book', raise_exception=True)
-def delete_book(request, pk):
+def can_delete_book(request, pk):
     book = get_object_or_404(Book, pk=pk)
     if request.method == "POST":
         book.delete()
